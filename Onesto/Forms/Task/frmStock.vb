@@ -23,9 +23,14 @@ Public Class frmStock
     Dim flagSave, flagClose As Boolean
 
     Private Sub frmStock_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        MsgBox("Harap menunggu data sedang disimpan", vbInformation)
-        flagClose = True
-        btnSimpan_Click(sender, e)
+        If MsgBox("APAKAH DATA SCAN SUDAH DISIMPAN ?", vbYesNo + vbCritical, Me.Text) = vbYes Then
+
+        Else
+            MsgBox("Harap menunggu data sedang disimpan", vbInformation)
+            flagClose = True
+            btnSimpan_Click(sender, e)
+        End If
+        
     End Sub
 
     Private Sub frmStock_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -45,9 +50,20 @@ Public Class frmStock
         txtScanCode.Focus()
         Timer1.Enabled = True
         flagSave = False
+
+        dtpFrom.Value = CDate(GetSysInit("tanggal_stock"))
+        dtpFrom.Format = DateTimePickerFormat.Custom
+        dtpFrom.CustomFormat = "MM-yyyy"
+
     End Sub
 
     Sub getPenjualan()
+        Dim hasRecords As Boolean = False
+
+        dtpFrom.Value = CDate(GetSysInit("tanggal_stock"))
+        dtpFrom.Format = DateTimePickerFormat.Custom
+        dtpFrom.CustomFormat = "MM-yyyy"
+
         Try
             With ListView1
                 .Clear()
@@ -127,7 +143,13 @@ Public Class frmStock
 
             Next
 
-            cmd2 = cmd2.Remove(cmd2.Length - 11)
+            If cmd2 <> "" Then
+                cmd2 = cmd2.Remove(cmd2.Length - 11)
+                hasRecords = True
+            Else
+                hasRecords = False
+            End If
+
             cmd3 = ") aa INNER JOIN (SELECT c.DEPTID,c.STOCKID,c.CURQTY,c.STOCKNAME " & _
                 "FROM OPENQUERY(MEGA, 'SELECT DEPTID,STOCKID,CURQTY,STOCKNAME FROM " + Chr(34) + GetSysInit("etstore_master_stock") + Chr(34) + "')c)cc ON aa.STOCKID = cc.STOCKID " & _
                 "WHERE aa.CANCEL = 0 GROUP BY cc.DEPTID,aa.STOCKID,cc.STOCKNAME,aa.QTYSCAN,cc.CURQTY,aa.CANCEL,aa.scan_batch " & _
@@ -139,23 +161,24 @@ Public Class frmStock
                 cmd4 = "ORDER BY cc.DEPTID"
             End If
 
+            If hasRecords = True Then
+                Dim DA2 As New SqlDataAdapter(cmd1 + cmd2 + cmd3 + cmd4, cn)
+                DA2.SelectCommand.CommandTimeout = 600
+                DS2 = New DataSet
+                DA2.Fill(DS2, "_transaksi")
 
-            Dim DA2 As New SqlDataAdapter(cmd1 + cmd2 + cmd3 + cmd4, cn)
-            DA2.SelectCommand.CommandTimeout = 600
-            DS2 = New DataSet
-            DA2.Fill(DS2, "_transaksi")
-
-            Dim lvwItem As ListViewItem
-            For i As Integer = 0 To DS2.Tables("_transaksi").Rows.Count - 1
-                lvwItem = New ListViewItem
-                lvwItem.Text = DS2.Tables("_transaksi").Rows(i).Item("DEPTID").ToString
-                lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("STOCKID").ToString)
-                lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("STOCKNAME").ToString)
-                lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("QTY").ToString)
-                lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("QTYSCAN").ToString)
-                lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("CURQTY").ToString)
-                ListView1.Items.Add(lvwItem)
-            Next i
+                Dim lvwItem As ListViewItem
+                For i As Integer = 0 To DS2.Tables("_transaksi").Rows.Count - 1
+                    lvwItem = New ListViewItem
+                    lvwItem.Text = DS2.Tables("_transaksi").Rows(i).Item("DEPTID").ToString
+                    lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("STOCKID").ToString)
+                    lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("STOCKNAME").ToString)
+                    lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("QTY").ToString)
+                    lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("QTYSCAN").ToString)
+                    lvwItem.SubItems.Add(DS2.Tables("_transaksi").Rows(i).Item("CURQTY").ToString)
+                    ListView1.Items.Add(lvwItem)
+                Next i
+            End If
 
         Catch ex As Exception
             If ConnectionState.Open = True Then cn.Close()

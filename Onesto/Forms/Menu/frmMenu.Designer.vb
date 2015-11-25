@@ -40,6 +40,8 @@ Partial Class frmMenu
         Me.TaskManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DelegasiTugasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.StockGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GajiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,8 +52,7 @@ Partial Class frmMenu
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LaporanStockGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -117,14 +118,14 @@ Partial Class frmMenu
         'UserCardToolStripMenuItem
         '
         Me.UserCardToolStripMenuItem.Name = "UserCardToolStripMenuItem"
-        Me.UserCardToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UserCardToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.UserCardToolStripMenuItem.Text = "User"
         '
         'TugasToolStripMenuItem
         '
         Me.TugasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TemplateTugasToolStripMenuItem1, Me.TugasToolStripMenuItem1})
         Me.TugasToolStripMenuItem.Name = "TugasToolStripMenuItem"
-        Me.TugasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TugasToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.TugasToolStripMenuItem.Text = "Tugas"
         '
         'TemplateTugasToolStripMenuItem1
@@ -142,7 +143,7 @@ Partial Class frmMenu
         'DepartemenToolStripMenuItem
         '
         Me.DepartemenToolStripMenuItem.Name = "DepartemenToolStripMenuItem"
-        Me.DepartemenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DepartemenToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.DepartemenToolStripMenuItem.Text = "Departemen"
         '
         'TaskManagementToolStripMenuItem
@@ -165,6 +166,17 @@ Partial Class frmMenu
         Me.StockToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.StockToolStripMenuItem.Text = "Stock"
         '
+        'SettingToolStripMenuItem
+        '
+        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingToolStripMenuItem.Text = "Setting"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        '
         'StockGudangToolStripMenuItem
         '
         Me.StockGudangToolStripMenuItem.Name = "StockGudangToolStripMenuItem"
@@ -173,7 +185,7 @@ Partial Class frmMenu
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GajiToolStripMenuItem, Me.LaporanTugasToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GajiToolStripMenuItem, Me.LaporanTugasToolStripMenuItem, Me.LaporanStockGudangToolStripMenuItem})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -181,13 +193,13 @@ Partial Class frmMenu
         'GajiToolStripMenuItem
         '
         Me.GajiToolStripMenuItem.Name = "GajiToolStripMenuItem"
-        Me.GajiToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GajiToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.GajiToolStripMenuItem.Text = "Laporan Gaji"
         '
         'LaporanTugasToolStripMenuItem
         '
         Me.LaporanTugasToolStripMenuItem.Name = "LaporanTugasToolStripMenuItem"
-        Me.LaporanTugasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LaporanTugasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.LaporanTugasToolStripMenuItem.Text = "Laporan Tugas"
         '
         'DataToolStripMenuItem
@@ -224,16 +236,11 @@ Partial Class frmMenu
         Me.ToolStrip1.Text = "ToolStrip1"
         Me.ToolStrip1.Visible = False
         '
-        'SettingToolStripMenuItem
+        'LaporanStockGudangToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
-        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SettingToolStripMenuItem.Text = "Setting"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.LaporanStockGudangToolStripMenuItem.Name = "LaporanStockGudangToolStripMenuItem"
+        Me.LaporanStockGudangToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.LaporanStockGudangToolStripMenuItem.Text = "Laporan Stock Gudang"
         '
         'frmMenu
         '
@@ -288,4 +295,5 @@ Partial Class frmMenu
     Friend WithEvents StockGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents LaporanStockGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

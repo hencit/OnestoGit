@@ -166,4 +166,10 @@ Public Class frmMenu
         frmSysStockGudang.Show()
         frmSysStockGudang.BringToFront()
     End Sub
+
+    Private Sub LaporanStockGudangToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaporanStockGudangToolStripMenuItem.Click
+        rptStock.MdiParent = Me
+        rptStock.Show()
+        rptStock.BringToFront()
+    End Sub
 End Class

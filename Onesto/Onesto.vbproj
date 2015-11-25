@@ -199,6 +199,12 @@
     <Compile Include="Forms\Report\rptGaji.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Report\rptStock.Designer.vb">
+      <DependentUpon>rptStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Report\rptStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Report\rptTugas.Designer.vb">
       <DependentUpon>rptTugas.vb</DependentUpon>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report\rptGaji.resx">
       <DependentUpon>rptGaji.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report\rptStock.resx">
+      <DependentUpon>rptStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report\rptTugas.resx">
       <DependentUpon>rptTugas.vb</DependentUpon>

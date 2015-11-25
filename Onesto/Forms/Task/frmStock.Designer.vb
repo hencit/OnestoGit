@@ -35,6 +35,8 @@ Partial Class frmStock
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnHabis = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.dtpFrom = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'Label1
@@ -143,11 +145,31 @@ Partial Class frmStock
         Me.btnHabis.Text = "HABIS"
         Me.btnHabis.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(284, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 364
+        Me.Label3.Text = "Periode"
+        '
+        'dtpFrom
+        '
+        Me.dtpFrom.Enabled = False
+        Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFrom.Location = New System.Drawing.Point(338, 8)
+        Me.dtpFrom.Name = "dtpFrom"
+        Me.dtpFrom.Size = New System.Drawing.Size(121, 20)
+        Me.dtpFrom.TabIndex = 363
+        '
         'frmStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.dtpFrom)
         Me.Controls.Add(Me.btnHabis)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnSimpan)
@@ -178,4 +200,6 @@ Partial Class frmStock
     Friend WithEvents btnSimpan As System.Windows.Forms.Button
     Friend WithEvents btnRefresh As System.Windows.Forms.Button
     Friend WithEvents btnHabis As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents dtpFrom As System.Windows.Forms.DateTimePicker
 End Class
