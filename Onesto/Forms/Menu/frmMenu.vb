@@ -172,4 +172,23 @@ Public Class frmMenu
         rptStock.Show()
         rptStock.BringToFront()
     End Sub
+
+    Private Sub BankMatchingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BankMatchingToolStripMenuItem.Click
+        frmBankMatching.MdiParent = Me
+        frmBankMatching.Show()
+        frmBankMatching.BringToFront()
+    End Sub
+
+    Private Sub ImportSupplierToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportSupplierToolStripMenuItem.Click
+        'val1 = "im_karyawan_"
+        'val2 = "buka"
+        'If otorisasi(val1 + val2) = False Then
+        '    MsgBox("Anda tidak mempunyai otorisasi " + val2 + " modul ini!,Silahkan hubungi administrator anda untuk diberikan otorisasi", vbCritical)
+        '    Exit Sub
+        'End If
+
+        frmImportSup.MdiParent = Me
+        frmImportSup.Show()
+        frmImportSup.BringToFront()
+    End Sub
 End Class

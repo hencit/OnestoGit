@@ -1,0 +1,2 @@
+G:\OnestoGitHub\trunk\Onesto\bin\Debug\Onesto.exe.config
+G:\OnestoGitHub\trunk\Onesto\obj\x86\Debug\Onesto.vbproj.ResolveComReference.cache

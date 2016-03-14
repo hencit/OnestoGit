@@ -43,16 +43,19 @@ Partial Class frmMenu
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.StockGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BankMatchingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GajiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanTugasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanStockGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportKaryawanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportPenjualanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.LaporanStockGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportSupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -75,7 +78,7 @@ Partial Class frmMenu
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.UserToolStripMenuItem, Me.TaskManagementToolStripMenuItem, Me.StockToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.DataToolStripMenuItem, Me.WindowToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.UserToolStripMenuItem, Me.TaskManagementToolStripMenuItem, Me.StockToolStripMenuItem, Me.BankToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.DataToolStripMenuItem, Me.WindowToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowToolStripMenuItem
         Me.MenuStrip.Name = "MenuStrip"
@@ -169,19 +172,32 @@ Partial Class frmMenu
         'SettingToolStripMenuItem
         '
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
-        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.SettingToolStripMenuItem.Text = "Setting"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
         '
         'StockGudangToolStripMenuItem
         '
         Me.StockGudangToolStripMenuItem.Name = "StockGudangToolStripMenuItem"
-        Me.StockGudangToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StockGudangToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.StockGudangToolStripMenuItem.Text = "Stock Gudang"
+        '
+        'BankToolStripMenuItem
+        '
+        Me.BankToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BankMatchingToolStripMenuItem})
+        Me.BankToolStripMenuItem.Name = "BankToolStripMenuItem"
+        Me.BankToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
+        Me.BankToolStripMenuItem.Text = "Bank"
+        '
+        'BankMatchingToolStripMenuItem
+        '
+        Me.BankMatchingToolStripMenuItem.Name = "BankMatchingToolStripMenuItem"
+        Me.BankMatchingToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.BankMatchingToolStripMenuItem.Text = "Bank Matching"
         '
         'LaporanToolStripMenuItem
         '
@@ -202,9 +218,15 @@ Partial Class frmMenu
         Me.LaporanTugasToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.LaporanTugasToolStripMenuItem.Text = "Laporan Tugas"
         '
+        'LaporanStockGudangToolStripMenuItem
+        '
+        Me.LaporanStockGudangToolStripMenuItem.Name = "LaporanStockGudangToolStripMenuItem"
+        Me.LaporanStockGudangToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.LaporanStockGudangToolStripMenuItem.Text = "Laporan Stock Gudang"
+        '
         'DataToolStripMenuItem
         '
-        Me.DataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportKaryawanToolStripMenuItem, Me.ImportPenjualanToolStripMenuItem})
+        Me.DataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportKaryawanToolStripMenuItem, Me.ImportPenjualanToolStripMenuItem, Me.ImportSupplierToolStripMenuItem})
         Me.DataToolStripMenuItem.Name = "DataToolStripMenuItem"
         Me.DataToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
         Me.DataToolStripMenuItem.Text = "Data"
@@ -236,11 +258,11 @@ Partial Class frmMenu
         Me.ToolStrip1.Text = "ToolStrip1"
         Me.ToolStrip1.Visible = False
         '
-        'LaporanStockGudangToolStripMenuItem
+        'ImportSupplierToolStripMenuItem
         '
-        Me.LaporanStockGudangToolStripMenuItem.Name = "LaporanStockGudangToolStripMenuItem"
-        Me.LaporanStockGudangToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.LaporanStockGudangToolStripMenuItem.Text = "Laporan Stock Gudang"
+        Me.ImportSupplierToolStripMenuItem.Name = "ImportSupplierToolStripMenuItem"
+        Me.ImportSupplierToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.ImportSupplierToolStripMenuItem.Text = "Import Supplier"
         '
         'frmMenu
         '
@@ -296,4 +318,7 @@ Partial Class frmMenu
     Friend WithEvents SettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents LaporanStockGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BankToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BankMatchingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ImportSupplierToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
